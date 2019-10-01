@@ -1,0 +1,15 @@
+package equation;
+
+public class Trinome {
+	
+		double a ;
+		double b ;
+		double c ;
+		double delta ;
+		Trinome(double a , double b , double c){
+			this.a=a;
+			this.b=b;
+			this.c=c;
+			this.delta=(b*b)-4*a*c;
+		}
+}

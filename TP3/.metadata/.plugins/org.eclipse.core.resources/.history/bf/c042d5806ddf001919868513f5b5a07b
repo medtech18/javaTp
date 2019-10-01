@@ -1,0 +1,26 @@
+package jeuCarte;
+
+public enum Valeur {
+
+    SEPT(1),
+    HUIT(2),
+    NEUF(3),
+    DIX(4),
+    VALET(5),
+    DAME(6),
+    ROI(7),
+    AS(8);
+	
+	int indice ;
+    
+    public String getNom() 
+    {
+    	return 
+    }
+    
+    Valeur(int indice )
+    {
+    	this.indice = indice ;
+    }
+   
+}

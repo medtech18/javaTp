@@ -1,0 +1,16 @@
+package jeuCarte;
+
+public class Carte {
+	Couleur couleur;
+	Valeur 	valeur ;
+	
+	Carte(Couleur couleur, Valeur valeur)
+	{
+		this.couleur = new Couleur(couleur);
+	}
+	
+	public String getNom() {
+		System.out.println(this);
+	}
+
+}
