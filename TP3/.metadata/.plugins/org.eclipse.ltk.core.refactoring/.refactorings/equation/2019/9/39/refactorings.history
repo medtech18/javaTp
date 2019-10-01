@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;equation.Equation2Deg&apos; to &apos;Trinome&apos;&#x0A;- Original project: &apos;equation&apos;&#x0A;- Original element: &apos;equation.Equation2Deg&apos;&#x0A;- Renamed element: &apos;equation.Trinome&apos;&#x0A;- Update references to refactored element&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;Equation2Deg&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;equation{Equation2Deg.java[Equation2Deg" matchStrategy="1" name="Trinome" qualified="false" references="true" similarDeclarations="false" stamp="1569395985425" textual="false" version="1.0"/>
+</session>

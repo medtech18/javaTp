@@ -1,0 +1,3 @@
+INDEX VERSION 1.131+/home/e/elasrim/Project_Java/TP3/.metadata/.plugins/org.eclipse.jdt.core
+2111574592.index
+3309059451.index
