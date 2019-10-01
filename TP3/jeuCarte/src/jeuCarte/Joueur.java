@@ -14,6 +14,11 @@ public class Joueur {
 	{
 		
 	}
+
+	public String getNom()
+	{
+		return this.nom;
+	}
 	
 	public Carte joue()
 	{

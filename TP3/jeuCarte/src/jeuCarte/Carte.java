@@ -28,7 +28,7 @@ public class Carte {
 	}
 	
 	public String getNom() {
-		return this.couleur+"de"+this.valeur;
+		return this.couleur+" de "+this.valeur;
 	}
 	
 	public boolean egale(Carte oppCarte)

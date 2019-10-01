@@ -2,14 +2,14 @@ package jeuCarte;
 
 public enum Valeur {
 
-    SEPT("sept"),
-    HUIT("huit"),
-    NEUF("neuf"),
-    DIX("dix"),
-    VALET("valet"),
-    DAME("dame"),
-    ROI("roi"),
-    AS("as");
+    SEPT("1"),
+    HUIT("2"),
+    NEUF("3"),
+    DIX("4"),
+    VALET("5"),
+    DAME("6"),
+    ROI("7"),
+    AS("8");
 	
 	String indice ;
     
@@ -22,5 +22,10 @@ public enum Valeur {
     {
     	this.indice = indice ;
     }
-   
+
+    int getIndice()
+    {
+        return Integer.valueOf(this.indice);
+    }
+
 }
