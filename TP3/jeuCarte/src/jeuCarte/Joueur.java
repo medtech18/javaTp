@@ -8,6 +8,7 @@ public class Joueur {
 	public Joueur(String nom)
 	{
 		this.nom = nom;
+		this.carte = new Carte();
 	}
 	
 	public void donnerCarte(Carte carte)

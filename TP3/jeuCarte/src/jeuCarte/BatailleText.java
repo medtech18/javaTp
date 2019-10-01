@@ -19,5 +19,6 @@ public class BatailleText
             System.out.println("Bataille ! on rejoue..\" et relance le tour, dans le cas où il y a bataille");
         else
             System.out.println("C'est le joueur "+ bataille.gagnant().getNom() +" qui remporte le tour");
+        System.out.println( bataille.gagnant().carte.getFichierImage());
     }
 }

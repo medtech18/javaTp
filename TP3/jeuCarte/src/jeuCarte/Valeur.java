@@ -15,6 +15,26 @@ public enum Valeur {
     
     public String getNom() 
     {
+        switch (this.indice)
+        {
+            case "1":
+                return "sept";
+            case "2":
+                return "huit";
+            case "3":
+                return "neuf";
+            case "4":
+                return "dix";
+            case "5":
+                return "valet";
+            case "6":
+                return "dame";
+            case "7":
+                return "roi";
+            case "8":
+                return "as";
+
+        }
     	return this.indice;
     }
     

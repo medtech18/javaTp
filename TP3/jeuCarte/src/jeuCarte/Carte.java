@@ -44,4 +44,8 @@ public class Carte {
 			
 	}
 
+	public String getFichierImage()
+	{
+		return valeur.getNom().toLowerCase() + "-" + "de-" + couleur.indice + ".png" ;
+	}
 }
