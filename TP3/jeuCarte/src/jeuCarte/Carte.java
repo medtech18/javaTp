@@ -22,10 +22,9 @@ public class Carte {
 		int nbAuHasard = rand.nextInt(coleurPossibles.length);
 		this.couleur = coleurPossibles[nbAuHasard];
 		
-		Couleur[] valeurPossibles = Couleur.values();
+		Valeur[] valeurPossibles = Valeur.values();
 		nbAuHasard = rand.nextInt(valeurPossibles.length);
-		this.couleur = valeurPossibles[nbAuHasard];
-		
+		this.valeur = valeurPossibles[nbAuHasard];
 	}
 	
 	public String getNom() {
