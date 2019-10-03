@@ -4,7 +4,7 @@ public enum Couleur {
 	PIQUE("pique"),
 	COEUR("coeur"),
 	CARREAU("carreau"),
-	TREFFLE("treffle"); 
+	TREFFLE("trefle"); 
 	
 	String indice ;
     

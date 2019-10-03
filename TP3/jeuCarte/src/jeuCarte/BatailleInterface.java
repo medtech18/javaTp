@@ -38,18 +38,24 @@ public class BatailleInterface {
         initFrame();
     }
 
-    void jouer() {
+    void jouer() 
+    {
+    	commentaire.setText("Commentaire");
         bataille.distribue();
         afficheCarteJoueur(1,bataille.joueur2.carte);
         afficheCarteJoueur(2,bataille.joueur1.carte);
     }
 
-    void remporter() {
-        // A compléter
+    void remporter() 
+    {
+    	Joueur jr = bataille.gagnant();
+    	if(jr != null)
+    	{
+    		commentaire.setText("c'est le joueur " + jr.getNom() + " qui remporte le pli");
+    	}
     }
 
     void afficheCarteJoueur(int joueur, Carte carte) {
-        // A compléter
 
         if (joueur == 1)
         {
