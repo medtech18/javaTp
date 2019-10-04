@@ -19,7 +19,9 @@ public enum Valeur {
         switch (this.valeur)
         {
             case 1:
+            	
             	nom= "sept";
+            	
             	break;
             case 2:
             	nom=  "huit";
