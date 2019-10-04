@@ -17,8 +17,4 @@ public enum Couleur {
     {
     	this.indice = indice ;
     }
-   
-
-
-
 }

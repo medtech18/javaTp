@@ -18,15 +18,15 @@ public class Bataille
 		do
 		{
 			this.joueur2.carte = new Carte();
-		}while(this.joueur1.equals(this.joueur2.carte));
+		}while(this.joueur1.carte.egale(this.joueur2.carte));
 
 	}
 
 	public Joueur gagnant()
 	{
-		if(this.joueur1.equals(this.joueur1.carte))
+		if(this.joueur1.carte.egale(this.joueur2.carte))
 			return null;
-		if(this.joueur1.carte.valeur.getIndice() > this.joueur2.carte.valeur.getIndice())
+		if(this.joueur1.carte.valeur.getValeur() > this.joueur2.carte.valeur.getValeur())
 			return this.joueur1;
 		else
 			return this.joueur2;

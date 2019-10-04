@@ -9,12 +9,6 @@ public class PartieDeBatailleTexte
 {
     public static void main(String[] args) {
         BatailleText bataille = new BatailleText("Anna Tomie", "Guy de Michelin");
-
-        Path currentRelativePath = Paths.get("");
-        String s = currentRelativePath.toAbsolutePath().toString();
-        System.out.println("Current relative path is: " + s);
-
-
         String reponse = "non";
         do {
             bataille.tour();

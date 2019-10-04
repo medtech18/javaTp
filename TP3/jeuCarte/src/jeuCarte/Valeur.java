@@ -2,50 +2,60 @@ package jeuCarte;
 
 public enum Valeur {
 
-    SEPT("1"),
-    HUIT("2"),
-    NEUF("3"),
-    DIX("4"),
-    VALET("5"),
-    DAME("6"),
-    ROI("7"),
-    AS("8");
+    SEPT(1),
+    HUIT(2),
+    NEUF(3),
+    DIX(4),
+    VALET(5),
+    DAME(6),
+    ROI(7),
+    AS(8);
 	
-	String indice ;
+	int valeur ;
     
     public String getNom() 
     {
-        switch (this.indice)
+    	String nom ="";
+        switch (this.valeur)
         {
-            case "1":
-                return "sept";
-            case "2":
-                return "huit";
-            case "3":
-                return "neuf";
-            case "4":
-                return "dix";
-            case "5":
-                return "valet";
-            case "6":
-                return "dame";
-            case "7":
-                return "roi";
-            case "8":
-                return "as";
+            case 1:
+            	nom= "sept";
+            	break;
+            case 2:
+            	nom=  "huit";
+            	break;
+            case 3:
+            	nom=  "neuf";
+            	break;
+            case 4:
+            	nom=  "dix";
+            	break;
+            case 5:
+            	nom=  "valet";
+            	break;
+            case 6:
+            	nom=  "dame";
+            	break;
+            case 7:
+            	nom=  "roi";
+            	break;
+            case 8:
+            	nom=  "as";
+            	break;
+            default:
 
         }
-    	return this.indice;
+    	return nom;
     }
     
-    Valeur(String indice )
+    Valeur(int value )
     {
-    	this.indice = indice ;
+    	this.valeur = value ;
     }
 
-    int getIndice()
+    int getValeur()
     {
-        return Integer.valueOf(this.indice);
+        return this.valeur ;
     }
 
 }

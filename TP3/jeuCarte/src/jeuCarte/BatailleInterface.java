@@ -42,8 +42,11 @@ public class BatailleInterface {
     {
     	commentaire.setText("Commentaire");
         bataille.distribue();
-        afficheCarteJoueur(1,bataille.joueur2.carte);
-        afficheCarteJoueur(2,bataille.joueur1.carte);
+        bataille.afficheMains();
+        afficheCarteJoueur(1,bataille.joueur1.carte);
+        System.out.println(bataille.joueur1.carte.getFichierImage());
+        afficheCarteJoueur(2,bataille.joueur2.carte);
+        System.out.println(bataille.joueur2.carte.getFichierImage());
     }
 
     void remporter() 
@@ -61,18 +64,18 @@ public class BatailleInterface {
         {
             if(carte == null)
             {
-                carteJoueurDroiteLabel.setIcon(null);
+            	carteJoueurGaucheLabel.setIcon(null);
                 return;
             }
-            carteJoueurDroiteLabel.setIcon(new ImageIcon("/Users/simo/IdeaProjects/javaTp/TP3/jeuCarte/src/images/"+bataille.joueur2.carte.getFichierImage()));
-        }else
+            carteJoueurGaucheLabel.setIcon(new ImageIcon(PATH_TO_IMAGES+bataille.joueur1.carte.getFichierImage()));
+        }else if (joueur == 2)
         {
             if(carte == null)
             {
-                carteJoueurGaucheLabel.setIcon(null);
+            	carteJoueurDroiteLabel.setIcon(null);
                 return;
             }
-            carteJoueurGaucheLabel.setIcon(new ImageIcon("/Users/simo/IdeaProjects/javaTp/TP3/jeuCarte/src/images/"+bataille.joueur1.carte.getFichierImage()));
+            carteJoueurDroiteLabel.setIcon(new ImageIcon(PATH_TO_IMAGES+bataille.joueur2.carte.getFichierImage()));
         }
     }
 
