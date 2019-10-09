@@ -1,24 +1,13 @@
 package belote;
 
 public enum Couleur {
-	PIQUE("pique"),
-	COEUR("coeur"),
-	CARREAU("carreau"),
-	TREFFLE("trefle"); 
-	
-	String indice ;
-    
+	PIQUE,
+	COEUR,
+	CARREAU,
+	TREFLE;
+	    
     public String getNom() 
     {
-    	return this.indice;
-    }
-    
-    Couleur(String indice)
-    {
-    	this.indice = indice ;
-    }
-   
-
-
-
+    	return this.name();
+    } 
 }

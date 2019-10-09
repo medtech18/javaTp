@@ -1,6 +1,5 @@
 package belote;
 
-
 public class Bataille
 {
 	Joueur joueur1 ;
@@ -25,7 +24,7 @@ public class Bataille
 
 	public Joueur gagnant()
 	{
-		if(this.joueur1.carte.egale(this.joueur1.carte))
+		if(this.joueur1.carte.egale(this.joueur2.carte))
 			return null;
 		if(this.joueur1.carte.valeur.getValeur() > this.joueur2.carte.valeur.getValeur())
 			return this.joueur1;

@@ -11,57 +11,59 @@ public enum Valeur {
     ROI(7),
     AS(8);
 	
+	int indice;
 	int valeur ;
 	int valeurAtout ;
-    
-    public String getNom() 
+	
+    Valeur(int indice )
     {
-    	String nom = "";
-    	
-        switch (this.valeur)
-        {
-            case 1:
-            	nom = "sept";
-                break;
-            case 2:
-            	nom = "huit";
-                break;
-            case 3:
-            	nom = "neuf";
-                break;
-            case 4:
-            	nom = "dix";
-                break;
-            case 5:
-            	nom = "valet";
-            	break;
-            case 6:
-            	nom = "dame";
-            	break;
-            case 7:
-            	nom = "roi";
-            	break;
-            case 8:
-            	nom = "as";
-            	break;
-            default :
-        }
-        return nom;
+    	switch(indice)
+    	{
+    		case 1: case 2:
+    			this.valeur 	 = 0;
+    			this.valeurAtout = 0 ;
+    			break;
+    		case 3 :
+    			this.valeur 	 = 0;
+    			this.valeurAtout = 14 ;
+    			break;
+    		case 4 :
+    			this.valeur 	 = 10;
+    			this.valeurAtout = 10 ;
+    			break;
+    		case 5 :
+    			this.valeur 	 = 2;
+    			this.valeurAtout = 20;
+    		case 6 :
+    			this.valeur 	 = 3;
+    			this.valeurAtout = 3;	
+    		case 7 :
+    			this.valeur 	 = 4;
+    			this.valeurAtout = 4;
+    		case 8 :
+    			this.valeur 	 = 8;
+    			this.valeurAtout = 4;
+    			
+    	}
+    	this.indice = indice ;
     }
     
-    Valeur(int valeur )
+    int getIndice()
     {
-    	this.valeur = valeur ;
+    	return indice;
+    }
+    public String getNom() 
+    {
+    	return this.name();
     }
     
     int getValeur()
     {
-    	return valeur;
-    }
-    
-    int getValeurAtout()
-    {
-    	return valeurAtout;
+        return this.valeur ;
     }
 
+    int getValeurAtout()
+    {
+        return this.valeurAtout ;
+    }
 }

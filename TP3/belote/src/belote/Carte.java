@@ -33,8 +33,8 @@ public class Carte {
 	
 	public boolean egale(Carte oppCarte)
 	{
-		if(this.valeur == oppCarte.valeur &&
-		   this.couleur == oppCarte.couleur )
+		if((this.valeur == oppCarte.valeur) &&
+		   (this.couleur == oppCarte.couleur) )
 		{
 			return true;
 		}else
@@ -46,6 +46,6 @@ public class Carte {
 
 	public String getFichierImage()
 	{
-		return valeur.getNom().toLowerCase() + "-" + "de -" + couleur.indice + ".png" ;
+		return valeur.getNom().toLowerCase() + "-" + "de-" + couleur.getNom() + ".png" ;
 	}
 }

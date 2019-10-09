@@ -44,7 +44,9 @@ public class BatailleInterface {
         bataille.distribue();
         bataille.afficheMains();
         afficheCarteJoueur(1,bataille.joueur1.carte);
+        //System.out.println(bataille.joueur1.carte.getFichierImage());
         afficheCarteJoueur(2,bataille.joueur2.carte);
+        //System.out.println(bataille.joueur2.carte.getFichierImage());
     }
 
     void remporter() 
@@ -66,7 +68,7 @@ public class BatailleInterface {
                 return;
             }
             carteJoueurGaucheLabel.setIcon(new ImageIcon(PATH_TO_IMAGES+bataille.joueur1.carte.getFichierImage()));
-        }else
+        }else if (joueur == 2)
         {
             if(carte == null)
             {

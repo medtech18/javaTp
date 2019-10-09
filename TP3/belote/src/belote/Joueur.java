@@ -4,11 +4,13 @@ public class Joueur {
 	
 	String nom ;
 	Carte carte ;
+	int points ;
 	
 	public Joueur(String nom)
 	{
-		this.nom = nom;
-		this.carte = new Carte();
+		this.nom 	= nom;
+		this.carte 	= new Carte();
+		this.points = 0;
 	}
 	
 	public void donnerCarte(Carte carte)
@@ -24,5 +26,10 @@ public class Joueur {
 	public Carte joue()
 	{
 		return this.carte;
+	}
+	
+	public void remporte(int points)
+	{
+		this.points = points;
 	}
 }
