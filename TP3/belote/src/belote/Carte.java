@@ -17,6 +17,8 @@ public class Carte {
 	public Carte()
 	
 	{
+		
+		
 		Couleur[] coleurPossibles = Couleur.values();
 		Random rand = new Random();
 		int nbAuHasard = rand.nextInt(coleurPossibles.length);
@@ -33,8 +35,8 @@ public class Carte {
 	
 	public boolean egale(Carte oppCarte)
 	{
-		if((this.valeur == oppCarte.valeur) &&
-		   (this.couleur == oppCarte.couleur) )
+		if((this.valeur == oppCarte.valeur)
+				&& (this.couleur == oppCarte.couleur) )
 		{
 			return true;
 		}else

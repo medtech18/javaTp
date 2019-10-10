@@ -40,6 +40,8 @@ public class BatailleInterface {
 
     void jouer() 
     {
+    	//comp
+    	
     	commentaire.setText("Commentaire");
         bataille.distribue();
         bataille.afficheMains();
@@ -51,6 +53,7 @@ public class BatailleInterface {
 
     void remporter() 
     {
+    	//comp
     	Joueur jr = bataille.gagnant();
     	if(jr != null)
     	{
@@ -59,23 +62,26 @@ public class BatailleInterface {
     }
 
     void afficheCarteJoueur(int joueur, Carte carte) {
-
+    	// comp
+    	
         if (joueur == 1)
         {
             if(carte == null)
             {
             	carteJoueurGaucheLabel.setIcon(null);
-                return;
+            }else
+            {
+                carteJoueurGaucheLabel.setIcon(new ImageIcon(PATH_TO_IMAGES+carte.getFichierImage()));
             }
-            carteJoueurGaucheLabel.setIcon(new ImageIcon(PATH_TO_IMAGES+bataille.joueur1.carte.getFichierImage()));
         }else if (joueur == 2)
         {
             if(carte == null)
             {
             	carteJoueurDroiteLabel.setIcon(null);
-                return;
+            }else
+            {
+                carteJoueurDroiteLabel.setIcon(new ImageIcon(PATH_TO_IMAGES+carte.getFichierImage()));
             }
-            carteJoueurDroiteLabel.setIcon(new ImageIcon(PATH_TO_IMAGES+bataille.joueur2.carte.getFichierImage()));
         }
     }
 

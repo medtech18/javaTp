@@ -24,11 +24,11 @@ public class Bataille
 
 	public Joueur gagnant()
 	{
-		if(this.joueur1.carte.egale(this.joueur2.carte))
+		if(this.joueur1.carte.valeur.getValeur() == this.joueur2.carte.valeur.getValeur())
 			return null;
 		if(this.joueur1.carte.valeur.getValeur() > this.joueur2.carte.valeur.getValeur())
 			return this.joueur1;
-		else
+		else 
 			return this.joueur2;
 	}
 

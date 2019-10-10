@@ -30,6 +30,6 @@ public class Joueur {
 	
 	public void remporte(int points)
 	{
-		this.points = points;
+		this.points += points;
 	}
 }

@@ -11,6 +11,7 @@ public enum Valeur {
     ROI(7),
     AS(8);
 	
+	
 	int indice;
 	int valeur ;
 	int valeurAtout ;
@@ -41,8 +42,8 @@ public enum Valeur {
     			this.valeur 	 = 4;
     			this.valeurAtout = 4;
     		case 8 :
-    			this.valeur 	 = 8;
-    			this.valeurAtout = 4;
+    			this.valeur 	 = 11;
+    			this.valeurAtout = 11;
     			
     	}
     	this.indice = indice ;
