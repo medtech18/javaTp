@@ -39,20 +39,21 @@ public class Belote
 		this.joueurSud.carte   	= tabCartes[1];
 		this.joueurOuest.carte 	= tabCartes[2];
 		this.joueurEst.carte   	= tabCartes[3];
-		
 		this.demandee	 = joueurJoue(joueurNord).couleur;	
 
 	}
 	
     public boolean isUnique(Carte[] cardArray, Carte oneCard) // A Modifier la boucle while 
     {
-        for (int i = 0; i < cardArray.length; i++) {
-            if (cardArray[i] != null && cardArray[i].egale(oneCard)) 
-            {
-                return false;
-            }
-        }
-        return true;
+    	int i 	  = 0 ;
+    	boolean P = true;
+    	while(i < cardArray.length && P)
+    	{
+    		P = !(cardArray[i] != null && cardArray[i].egale(oneCard)) ;
+    		i++;
+    	}
+    	
+        return P;
     }
     
 	public void afficheMains()
@@ -146,9 +147,10 @@ public class Belote
 		s=s+valeurcarte(joueurNord); 		
 		s=s+valeurcarte(joueurSud); 		
 		s=s+valeurcarte(joueurOuest); 		
-		s=s+valeurcarte(joueurEst); 		
+		s=s+valeurcarte(joueurEst); 
 		return s; 	
 	}
+	
 	
 	public String mains()
 	{

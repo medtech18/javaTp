@@ -25,8 +25,9 @@ public class BeloteInterface {
 	String nomEst;
 	String nomOuest;
 	int pointReporte;
-
 	Belote belote;
+	
+	boolean remporteClicked;
 
 	JLabel labelJoueurSud;
 	JLabel labelJoueurEst;
@@ -40,19 +41,19 @@ public class BeloteInterface {
 	JLabel carteJoueurOuestLabel;
 
 	BeloteInterface(String nomNord, String nomSud, String nomEst, String nomOuest) {
-        // A compléter
 		
 		belote = new Belote(nomNord,nomSud,nomEst,nomOuest);
-		this.nomNord  	  = 	nomNord;
-		this.nomSud	  	  = 	nomSud;
-		this.nomEst   	  = 	nomEst;
-		this.nomOuest 	  = 	nomOuest;
-		this.pointReporte = 0;
+		this.nomNord  	  	 = 	nomNord;
+		this.nomSud	  	  	 = 	nomSud;
+		this.nomEst   	  	 = 	nomEst;
+		this.nomOuest 	  	 = 	nomOuest;
+		this.pointReporte 	 = 	0;
+		this.remporteClicked =  false;
 		initFrame();
 	}
 
-	void jouer() {
-        // A compléter
+	void jouer() 
+	{
 		commentaire.setText("Commentaire");
 		belote.distribue();
 		afficheCarteJoueur(JoueurPosition.NORD, belote.joueurNord.carte);
@@ -60,16 +61,28 @@ public class BeloteInterface {
 		afficheCarteJoueur(JoueurPosition.SUD, belote.joueurSud.carte);
 		afficheCarteJoueur(JoueurPosition.OUEST, belote.joueurOuest.carte);
 		commentaire.setText(belote.mains());
+		remporteClicked = false;
 	}
 
 	void remporter() 
 	{
+		int pointGagne = 0;
 		Joueur gagnant = belote.gagnant();
-		int points = belote.points();
+		int points 	   = belote.points();
+		pointGagne = points ;
 		
+		if(remporteClicked == true)
+		{
+			pointGagne = 0;
+		}else
+		{
+			remporteClicked = true;
+		}
+
+			
 		if(gagnant == null)
 		{
-			this.pointReporte += points;
+			this.pointReporte += pointGagne;
 			String msg = "<html>";
 			msg += "C'est egalite entre les deux equipes" ;
 			msg += "<br/> " + points + " points reporte a la prochaine partie !<br/> ";
@@ -77,7 +90,7 @@ public class BeloteInterface {
 			commentaire.setText(msg);
 		}else
 		{
-			points +=  this.pointReporte;
+			pointGagne +=  this.pointReporte;
 			this.pointReporte = 0;
 			String msg = "<html>";
 			msg += "C'est " + gagnant.nom + " avec son " + gagnant.carte.getNom();
@@ -85,33 +98,19 @@ public class BeloteInterface {
 			msg += "</html>";
 			commentaire.setText(msg);
 			
-			/*
-			if(gagnant.nom == belote.joueurNord.getNom())
-			{
-				belote.joueurNord.remporte(points);
-			}else if(gagnant.nom == belote.joueurEst.getNom())
-			{
-				belote.joueurEst.remporte(points);
-			}else if(gagnant.nom == belote.joueurSud.getNom())
-			{
-				belote.joueurSud.remporte(points);
-			}else
-			{
-				belote.joueurOuest.remporte(points);
-			}*/
 			
 			if(gagnant == belote.joueurNord)
 			{
-				belote.joueurNord.remporte(points);
+				belote.joueurNord.remporte(pointGagne);
 			}else if(gagnant == belote.joueurEst)
 			{
-				belote.joueurEst.remporte(points);
+				belote.joueurEst.remporte(pointGagne);
 			}else if(gagnant == belote.joueurSud)
 			{
-				belote.joueurSud.remporte(points);
+				belote.joueurSud.remporte(pointGagne);
 			}else
 			{
-				belote.joueurOuest.remporte(points);
+				belote.joueurOuest.remporte(pointGagne);
 			}
 			
 			setJoueurPoints(JoueurPosition.NORD, belote.joueurNord.nom, belote.joueurNord.points);
@@ -121,7 +120,6 @@ public class BeloteInterface {
 
 		}
 		
-
 		afficheCarteJoueur(JoueurPosition.NORD, null);
 		afficheCarteJoueur(JoueurPosition.EST, null);
 		afficheCarteJoueur(JoueurPosition.SUD, null);
@@ -153,22 +151,6 @@ public class BeloteInterface {
 				break;
 		}
 		
-		
-		/*
-		
-		JLabel carteLabel = null;
-
-        // A compléter
-		if (carteLabel != null) {
-			if (carte != null) {
-				String fileName = PATH_TO_IMAGES + carte.getFichierImage();
-				carteLabel.setIcon(new ImageIcon(fileName));
-			} else {
-				carteLabel.setIcon(new ImageIcon(PATH_TO_IMAGES + "dos-de-carte.png"));
-			}
-
-		}
-		*/
 	}
 
 	void setJoueurPoints(JoueurPosition position, String nom, int points) {
@@ -192,12 +174,6 @@ public class BeloteInterface {
 			default:
 				break;
 		}
-
-		/*
-		if (joueurLabel != null) {
-			joueurLabel.setText(nom + " (" + points + ")");
-
-		} */
 
 	}
 
