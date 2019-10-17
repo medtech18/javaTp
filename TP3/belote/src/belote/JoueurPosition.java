@@ -1,8 +1,17 @@
 package belote;
 
 public enum JoueurPosition {
-	NORD ,
-	EST ,
-	SUD ,
-	OUEST;
+	NORD(1) ,
+	EST(2) ,
+	SUD(3) ,
+	OUEST(4);
+	
+	int indice;
+	
+	JoueurPosition(int indice)
+	{
+		this.indice = indice;
+	}
+	
+	
 }

@@ -11,6 +11,7 @@ public class Belote
 	Couleur atout ;
 	Couleur demandee;
 	
+	
 	Belote(String nomJnord , String nomJsud , String nomJest  , String nomJouest )
 	{
 		this.joueurNord  = new Joueur(nomJnord);
@@ -36,8 +37,8 @@ public class Belote
 		}
 		
 		this.joueurNord.carte   = tabCartes[0];
-		this.joueurSud.carte   	= tabCartes[1];
-		this.joueurOuest.carte 	= tabCartes[2];
+		this.joueurOuest.carte 	= tabCartes[1];
+		this.joueurSud.carte   	= tabCartes[2];
 		this.joueurEst.carte   	= tabCartes[3];
 		this.demandee	 = joueurJoue(joueurNord).couleur;	
 
@@ -88,9 +89,18 @@ public class Belote
 				if(joueur1.carte.valeur.getValeur() > joueur2.carte.valeur.getValeur())
 				{
 					tempJoueur = joueur1 ;
-				}else
+				}else if(joueur1.carte.valeur.getValeurAtout() < joueur2.carte.valeur.getValeurAtout())
 				{
 					tempJoueur = joueur2 ;
+				}else
+				{
+					if(joueur1.carte.valeur.getIndice() > joueur2.carte.valeur.getIndice())
+					{
+						tempJoueur = joueur1 ;
+					}else 
+					{
+						tempJoueur = joueur2 ;
+					}
 				}
 			}else if(joueur2.carte.couleur == demandee)
 			{
@@ -98,6 +108,24 @@ public class Belote
 			}else if(joueur1.carte.couleur == demandee)
 			{
 				tempJoueur = joueur1 ;
+			}else
+			{
+				if(joueur1.carte.valeur.getValeur() > joueur2.carte.valeur.getValeur())
+				{
+					tempJoueur = joueur1 ;
+				}else if(joueur1.carte.valeur.getValeurAtout() < joueur2.carte.valeur.getValeurAtout())
+				{
+					tempJoueur = joueur2 ;
+				}else
+				{
+					if(joueur1.carte.valeur.getIndice() > joueur2.carte.valeur.getIndice())
+					{
+						tempJoueur = joueur1 ;
+					}else 
+					{
+						tempJoueur = joueur2 ;
+					}
+				}
 			}
 		}else if(joueur1.carte.couleur == atout && joueur2.carte.couleur != atout)
 		{
@@ -105,14 +133,23 @@ public class Belote
 		}else if(joueur1.carte.couleur != atout && joueur2.carte.couleur == atout)
 		{
 			tempJoueur = joueur2 ;
-		}else if(joueur1.carte.couleur == atout && joueur2.carte.couleur == atout)
+		}else //if(joueur1.carte.couleur == atout && joueur2.carte.couleur == atout)
 		{
 			if(joueur1.carte.valeur.getValeurAtout() > joueur2.carte.valeur.getValeurAtout())
 			{
 				tempJoueur = joueur1 ;
-			}else
+			}else if(joueur1.carte.valeur.getValeurAtout() < joueur2.carte.valeur.getValeurAtout())
 			{
 				tempJoueur = joueur2 ;
+			}else
+			{
+				if(joueur1.carte.valeur.getIndice() > joueur2.carte.valeur.getIndice())
+				{
+					tempJoueur = joueur1 ;
+				}else 
+				{
+					tempJoueur = joueur2 ;
+				}
 			}
 		}
 		return tempJoueur;
@@ -122,10 +159,7 @@ public class Belote
 	{ 		
 		Joueur winerEquipe1=remporte(joueurNord,joueurSud); 
 		Joueur winerEquipe2=remporte(joueurOuest,joueurEst);
-		if (winerEquipe1==null)
-			winerEquipe1=joueurNord;
-		if (winerEquipe2==null)
-			winerEquipe2=joueurOuest;
+		
 		return remporte(winerEquipe1,winerEquipe2);
 	}
 	
@@ -155,12 +189,12 @@ public class Belote
 	public String mains()
 	{
 		String maChaine = "<html>\n";
-		maChaine += "La couleur d'atout est "+ this.atout +"<br/>\n" ;
-		maChaine += "La couleur demandée est "+ this.demandee +"<br/>\n";
-		maChaine += "Le joueur Nord"+ this.joueurNord.getNom() +"a un(e)"+ this.joueurNord.carte.getNom() + "<br/>\n";
-		maChaine += "Le joueur Nord"+ this.joueurOuest.getNom() +"a un(e)"+ this.joueurOuest.carte.getNom() + "<br/>\n";
-		maChaine += "Le joueur Nord"+ this.joueurSud.getNom() +"a un(e)"+ this.joueurSud.carte.getNom() + "<br/>\n";
-		maChaine += "Le joueur Nord"+ this.joueurEst.getNom() +"a un(e)"+ this.joueurEst.carte.getNom() + "</br>\n";
+		maChaine += "La couleur d'atout est "+ this.atout.getNom() +"<br/>\n" ;
+		maChaine += "La couleur demandée est "+ this.demandee.getNom() +"<br/>\n";
+		maChaine += "Le joueur Nord "+ this.joueurNord.getNom() +" a un(e) "+ this.joueurNord.carte.getNom() + "<br/>\n";
+		maChaine += "Le joueur Ouest "+ this.joueurOuest.getNom() +" a un(e) "+ this.joueurOuest.carte.getNom() + "<br/>\n";
+		maChaine += "Le joueur Sud "+ this.joueurSud.getNom() +" a un(e) "+ this.joueurSud.carte.getNom() + "<br/>\n";
+		maChaine += "Le joueur Est "+ this.joueurEst.getNom() +" a un(e) "+ this.joueurEst.carte.getNom() + "</br>\n";
 		maChaine += "</html> \n";
 
 		return maChaine;

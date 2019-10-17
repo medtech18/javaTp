@@ -30,7 +30,7 @@ public class Carte {
 	}
 	
 	public String getNom() {
-		return this.couleur+" de "+this.valeur;
+		return this.valeur.getNom()+" de "+this.couleur.getNom();
 	}
 	
 	public boolean egale(Carte oppCarte)
@@ -48,6 +48,6 @@ public class Carte {
 
 	public String getFichierImage()
 	{
-		return valeur.getNom().toLowerCase() + "-" + "de-" + couleur.getNom() + ".png" ;
+		return valeur.getNom() + "-" + "de-" + couleur.getNom() + ".png" ;
 	}
 }

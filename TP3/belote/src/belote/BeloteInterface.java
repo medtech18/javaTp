@@ -24,7 +24,6 @@ public class BeloteInterface {
 	String nomSud;
 	String nomEst;
 	String nomOuest;
-	int pointReporte;
 	Belote belote;
 	
 	boolean remporteClicked;
@@ -47,7 +46,6 @@ public class BeloteInterface {
 		this.nomSud	  	  	 = 	nomSud;
 		this.nomEst   	  	 = 	nomEst;
 		this.nomOuest 	  	 = 	nomOuest;
-		this.pointReporte 	 = 	0;
 		this.remporteClicked =  false;
 		initFrame();
 	}
@@ -57,11 +55,11 @@ public class BeloteInterface {
 		commentaire.setText("Commentaire");
 		belote.distribue();
 		afficheCarteJoueur(JoueurPosition.NORD, belote.joueurNord.carte);
-		afficheCarteJoueur(JoueurPosition.EST, belote.joueurEst.carte);
-		afficheCarteJoueur(JoueurPosition.SUD, belote.joueurSud.carte);
 		afficheCarteJoueur(JoueurPosition.OUEST, belote.joueurOuest.carte);
+		afficheCarteJoueur(JoueurPosition.SUD, belote.joueurSud.carte);
+		afficheCarteJoueur(JoueurPosition.EST, belote.joueurEst.carte);
 		commentaire.setText(belote.mains());
-		remporteClicked = false;
+		remporteClicked = false; // pour eviter de remporter le pli plusieurs fois sans jouer 
 	}
 
 	void remporter() 
@@ -79,47 +77,39 @@ public class BeloteInterface {
 			remporteClicked = true;
 		}
 
-			
-		if(gagnant == null)
+		
+		String msg = "<html>";
+		msg += "C'est " + gagnant.nom + " avec son " + gagnant.carte.getNom();
+		msg += "<br/> qui remporte " + points + " points!<br/>";
+		msg += "</html>";
+		commentaire.setText(msg);
+		
+		
+		if(gagnant == belote.joueurNord)
 		{
-			this.pointReporte += pointGagne;
-			String msg = "<html>";
-			msg += "C'est egalite entre les deux equipes" ;
-			msg += "<br/> " + points + " points reporte a la prochaine partie !<br/> ";
-			msg += "</html>";
-			commentaire.setText(msg);
+			belote.joueurNord.remporte(pointGagne);
+			belote.joueurSud.remporte(pointGagne);
+		}else if(gagnant == belote.joueurEst)
+		{
+			belote.joueurEst.remporte(pointGagne);
+			belote.joueurOuest.remporte(pointGagne);
+		}else if(gagnant == belote.joueurSud)
+		{
+			belote.joueurSud.remporte(pointGagne);
+			belote.joueurNord.remporte(pointGagne);
 		}else
 		{
-			pointGagne +=  this.pointReporte;
-			this.pointReporte = 0;
-			String msg = "<html>";
-			msg += "C'est " + gagnant.nom + " avec son " + gagnant.carte.getNom();
-			msg += "<br/> qui remporte " + points + " points!<br/>";
-			msg += "</html>";
-			commentaire.setText(msg);
-			
-			
-			if(gagnant == belote.joueurNord)
-			{
-				belote.joueurNord.remporte(pointGagne);
-			}else if(gagnant == belote.joueurEst)
-			{
-				belote.joueurEst.remporte(pointGagne);
-			}else if(gagnant == belote.joueurSud)
-			{
-				belote.joueurSud.remporte(pointGagne);
-			}else
-			{
-				belote.joueurOuest.remporte(pointGagne);
-			}
-			
-			setJoueurPoints(JoueurPosition.NORD, belote.joueurNord.nom, belote.joueurNord.points);
-			setJoueurPoints(JoueurPosition.EST, belote.joueurEst.nom, belote.joueurEst.points);
-			setJoueurPoints(JoueurPosition.SUD, belote.joueurSud.nom, belote.joueurSud.points);
-			setJoueurPoints(JoueurPosition.OUEST, belote.joueurOuest.nom, belote.joueurOuest.points);
-
+			belote.joueurOuest.remporte(pointGagne);
+			belote.joueurEst.remporte(pointGagne);
 		}
 		
+		setJoueurPoints(JoueurPosition.NORD, belote.joueurNord.nom, belote.joueurNord.points);
+		setJoueurPoints(JoueurPosition.EST, belote.joueurEst.nom, belote.joueurEst.points);
+		setJoueurPoints(JoueurPosition.SUD, belote.joueurSud.nom, belote.joueurSud.points);
+		setJoueurPoints(JoueurPosition.OUEST, belote.joueurOuest.nom, belote.joueurOuest.points);
+
+	
+	
 		afficheCarteJoueur(JoueurPosition.NORD, null);
 		afficheCarteJoueur(JoueurPosition.EST, null);
 		afficheCarteJoueur(JoueurPosition.SUD, null);
@@ -132,20 +122,44 @@ public class BeloteInterface {
 		switch(position)
 		{
 			case NORD:
-				if(carte != null) carteJoueurNordLabel.setIcon(new ImageIcon(PATH_TO_IMAGES+carte.getFichierImage()));
-				else carteJoueurNordLabel.setIcon(null);
+				if(carte != null) 
+				{
+					carteJoueurNordLabel.setIcon(new ImageIcon(PATH_TO_IMAGES+carte.getFichierImage()));
+				}
+				else 
+				{
+					carteJoueurNordLabel.setIcon(null);
+				}
 				break;
 			case EST :
-				if(carte != null) carteJoueurEstLabel.setIcon(new ImageIcon(PATH_TO_IMAGES+carte.getFichierImage()));
-				else carteJoueurEstLabel.setIcon(null);
+				if(carte != null) 
+				{
+					carteJoueurEstLabel.setIcon(new ImageIcon(PATH_TO_IMAGES+carte.getFichierImage()));
+				}
+				else 
+				{
+					carteJoueurEstLabel.setIcon(null);
+				}
 				break;
 			case SUD :
-				if(carte != null) carteJoueurSudLabel.setIcon(new ImageIcon(PATH_TO_IMAGES+carte.getFichierImage()));
-				else carteJoueurSudLabel.setIcon(null);
+				if(carte != null)
+				{
+					carteJoueurSudLabel.setIcon(new ImageIcon(PATH_TO_IMAGES+carte.getFichierImage()));
+				}
+				else 
+				{
+					carteJoueurSudLabel.setIcon(null);
+				}
 				break;
 			case OUEST:
-				if(carte != null) carteJoueurOuestLabel.setIcon(new ImageIcon(PATH_TO_IMAGES+carte.getFichierImage()));
-				else carteJoueurOuestLabel.setIcon(null);
+				if(carte != null) 
+				{
+					carteJoueurOuestLabel.setIcon(new ImageIcon(PATH_TO_IMAGES+carte.getFichierImage()));
+				}
+				else 
+				{
+					carteJoueurOuestLabel.setIcon(null);
+				}
 				break;
 			default:
 				break;

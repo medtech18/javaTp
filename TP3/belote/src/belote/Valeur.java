@@ -4,7 +4,7 @@ public enum Valeur {
 
     SEPT(1),
     HUIT(2),
-    NEUF(3),
+    NEUF(3), 
     DIX(4),
     VALET(5),
     DAME(6),
@@ -35,15 +35,21 @@ public enum Valeur {
     		case 5 :
     			this.valeur 	 = 2;
     			this.valeurAtout = 20;
+    			break;
     		case 6 :
     			this.valeur 	 = 3;
     			this.valeurAtout = 3;	
+    			break;
     		case 7 :
     			this.valeur 	 = 4;
     			this.valeurAtout = 4;
+    			break;
     		case 8 :
     			this.valeur 	 = 11;
     			this.valeurAtout = 11;
+    			break;
+    		default:
+    			break;
     			
     	}
     	this.indice = indice ;
@@ -55,7 +61,7 @@ public enum Valeur {
     }
     public String getNom() 
     {
-    	return this.name();
+    	return this.name().toLowerCase();
     }
     
     int getValeur()
